@@ -62,6 +62,9 @@ INSTALLED_APPS = [
 
     # api doc
     'drf_yasg',
+
+    # let react connect to django
+    "corsheaders",
 ]
 
 # let django know you are using custom User model
@@ -92,6 +95,7 @@ ACCOUNT_AUTHENTICATION_METHOD = 'email'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -168,7 +172,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # rest-auth
 SITE_ID = 1  # rest-auth
 
-
 ##################celery################
 CELERY_BROKER_URL = os.environ.get("CELERY_BROKER", "redis://redis:6379/0")
 CELERY_RESULT_BACKEND = os.environ.get("CELERY_BROKER", "redis://redis:6379/0")
@@ -217,3 +220,7 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]

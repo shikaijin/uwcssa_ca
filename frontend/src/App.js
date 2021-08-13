@@ -1,19 +1,31 @@
 import React from "react";
-import './App.css';
-import {Provider} from 'react-redux';
-
-import  Bugs  from './components/Bugs';
-import configureStore from './store/configureStore';
-
-const store = configureStore();
-
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "./App.css";
+import Navbar from "./components/Navbar";
+import { FooterContainer } from "./containers/footer";
+// import '.App.css';
+import Home from "./components/pages/Home";
+import Services from "./components/pages/Services";
+import Products from "./components/pages/Products";
+import ContactUs from "./components/pages/ContactUs";
+import SignUp from "./components/pages/SignUp";
+import Marketing from "./components/pages/Marketing";
+import Consulting from "./components/pages/Consulting";
 function App() {
   return (
-    <Provider store={store}>
-      <Bugs/>
-      <h1>1111</h1>
-    </Provider>
-    
+    <Router>
+      <Navbar />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/services" exact component={Services} />
+        <Route path="/products" exact component={Products} />
+        <Route path="/contact-us" exact component={ContactUs} />
+        <Route path="/sign-up" exact component={SignUp} />
+        <Route path="/marketing" exact component={Marketing} />
+        <Route path="/consulting" exact component={Consulting} />
+      </Switch>
+      <FooterContainer />
+    </Router>
   );
 }
 

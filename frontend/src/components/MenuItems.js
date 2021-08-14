@@ -11,12 +11,12 @@ export const MenuItems= [
     },
         {
         title: 'Design',
-        path: '/design',
+        path: '/',
         cName: 'dropdown-link',
     },
         {
         title: 'Development',
-        path: '/development',
+        path: '/',
         cName: 'dropdown-link',
     },
 ]

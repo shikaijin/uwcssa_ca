@@ -6,7 +6,7 @@ import { FooterContainer } from "./containers/footer";
 // import '.App.css';
 import Home from "./components/pages/Home";
 import Services from "./components/pages/Services";
-import Products from "./components/pages/Products";
+import Members from "./components/pages/Members";
 import ContactUs from "./components/pages/ContactUs";
 import SignUp from "./components/pages/SignUp";
 import Marketing from "./components/pages/Marketing";
@@ -18,7 +18,7 @@ function App() {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/services" exact component={Services} />
-        <Route path="/products" exact component={Products} />
+        <Route path="/members" exact component={Members} />
         <Route path="/contact-us" exact component={ContactUs} />
         <Route path="/sign-up" exact component={SignUp} />
         <Route path="/marketing" exact component={Marketing} />

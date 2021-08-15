@@ -6,6 +6,8 @@
 }
 
 .home,
+.news,
+.forum,
 .services,
 .members,
 .contact-us,
@@ -13,7 +15,9 @@
 .marketing,
 .consulting {
   display: flex;
-  height: 90vh;
+  height: 30vh;
+  width: 100ch;
+  margin: auto;
   align-items: center;
   justify-content: center;
   font-size: 3rem;
@@ -21,6 +25,22 @@
 
 .home {
   background-image: url("./images/img-1.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-size: 100px;
+}
+.news {
+  background-image: url("./images/img-8.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-size: 100px;
+}
+.forum {
+  background-image: url("./images/img-9.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -80,4 +100,24 @@
   background-repeat: no-repeat;
   color: #fff;
   font-size: 100px;
+}
+
+@media screen {
+  .home,
+  .news,
+  .forum,
+  .services,
+  .members,
+  .contact-us,
+  .sign-up,
+  .marketing,
+  .consulting {
+    display: flex;
+    height: 30vh;
+    width: 100%;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+  }
 }

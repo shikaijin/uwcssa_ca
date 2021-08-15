@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Button } from "./Button";
+import { Button } from "../button/Button";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import Dropdown from "./Dropdown";
-import LogoSvg from './uwcssa_logo.svg';
+import LogoSvg from "../uwcssa_logo.svg";
 function Navbar() {
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
@@ -30,12 +30,13 @@ function Navbar() {
     <>
       <nav className="navbar">
         <Link to="/" className="navbar-logo">
-          UWCSSA <img
-              src={LogoSvg}
-              style={{ height: 40, width: 40 }}
-              alt="website logo"
-              fill="red"
-            />
+          UWCSSA{" "}
+          <img
+            src={LogoSvg}
+            style={{ height: 40, width: 40 }}
+            alt="website logo"
+            fill="red"
+          />
         </Link>
         <div className="menu-icon" onClick={handleClick}>
           <i className={click ? "fas fa-times" : "fas fa-bars"} />
@@ -46,6 +47,17 @@ function Navbar() {
               Home
             </Link>
           </li>
+          <li className="nav-item">
+            <Link to="/news" className="nav-links" onClick={closeMobileMenu}>
+              News
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/forum" className="nav-links" onClick={closeMobileMenu}>
+              Forum
+            </Link>
+          </li>
+
           <li
             className="nav-item"
             onMouseEnter={onMouseEnter}
@@ -61,11 +73,7 @@ function Navbar() {
             {dropdown && <Dropdown />}
           </li>
           <li className="nav-item">
-            <Link
-              to="/members"
-              className="nav-links"
-              onClick={closeMobileMenu}
-            >
+            <Link to="/members" className="nav-links" onClick={closeMobileMenu}>
               Members
             </Link>
           </li>

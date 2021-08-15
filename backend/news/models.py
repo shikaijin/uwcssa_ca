@@ -1,3 +1,4 @@
+import re
 from django.db import models
 from users.models import CustomUser
 # Create your models here.
@@ -28,6 +29,10 @@ class Topic(models.Model):
         db_table = 'topic'
         ordering = ['id']
 
+    @property
+    def created_by_username(self):
+        return self.created_by.username
+
 
 class Article(models.Model):
 
@@ -54,4 +59,14 @@ class Article(models.Model):
 
     class Meta:
         db_table = 'article'
-        ordering = ['id']
+        ordering = ['-id']
+
+    @property
+    def created_by_username(self):
+        return self.created_by.username
+
+    def updated_by_by_username(self):
+        return self.updated_by.username
+
+    def topic_name(self):
+        return self.topic.topic

@@ -5,6 +5,8 @@ from news.models import Topic, Article
 
 
 class TopicSerializer(serializers.ModelSerializer):
+    created_by_username = serializers.ReadOnlyField()
+
     class Meta:
         model = Topic
         fields = '__all__'
@@ -15,6 +17,11 @@ class TopicSerializer(serializers.ModelSerializer):
 
 
 class ArticleSerializer(serializers.ModelSerializer):
+    # reference: https://stackoverflow.com/questions/17280007/retrieving-a-foreign-key-value-with-django-rest-framework-serializers
+    created_by_username = serializers.ReadOnlyField()
+    updated_by_by_username = serializers.ReadOnlyField()
+    topic_name = serializers.ReadOnlyField()
+
     class Meta:
         model = Article
         fields = '__all__'

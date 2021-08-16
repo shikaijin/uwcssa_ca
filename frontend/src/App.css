@@ -47,7 +47,14 @@
   color: #fff;
   font-size: 100px;
 }
-
+.dashboard {
+  background-image: url("./images/img-6.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-size: 100px;
+}
 .services {
   background-image: url("./images/img-2.jpg");
   background-position: center;
@@ -83,7 +90,14 @@
   color: #fff;
   font-size: 100px;
 }
-
+.login-container {
+  margin: auto;
+  width: 960px;
+}
+.login-card {
+  justify-content: center;
+  text-align: center;
+}
 .marketing {
   background-image: url("./images/img-6.jpg");
   background-position: center;

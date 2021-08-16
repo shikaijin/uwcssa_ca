@@ -19,4 +19,9 @@ export const MenuItems= [
         path: '/',
         cName: 'dropdown-link',
     },
+            {
+        title: 'Dashboard',
+        path: '/dashboard',
+        cName: 'dropdown-link',
+    },
 ]

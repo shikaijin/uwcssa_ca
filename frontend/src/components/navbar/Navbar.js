@@ -90,11 +90,11 @@ function Navbar() {
 
           <li className="nav-item">
             <Link
-              to="/sing-up"
+              to="/login"
               className="nav-links-mobile"
               onClick={closeMobileMenu}
             >
-              Sign Up
+               Up
             </Link>
           </li>
         </ul>

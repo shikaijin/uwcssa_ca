@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import { FooterContainer } from "./containers/footer";
-// import '.App.css';
+
 import Home from "./components/pages/Home";
 import Services from "./components/pages/Services";
 import Members from "./components/pages/Members";
@@ -13,6 +13,9 @@ import Marketing from "./components/pages/Marketing";
 import Consulting from "./components/pages/Consulting";
 import News from "./components/pages/News";
 import Forum from "./components/pages/Forum";
+import Dashboard from "./components/pages/Dashboard";
+// import PrivateRoute from './components/Utils/PrivateRoute';
+// import PublicRoute from './components/Utils/PublicRoute';
 function App() {
   return (
     <Router>
@@ -24,7 +27,8 @@ function App() {
         <Route path="/services" exact component={Services} />
         <Route path="/members" exact component={Members} />
         <Route path="/contact-us" exact component={ContactUs} />
-        <Route path="/sign-up" exact component={SignUp} />
+        <Route path="/login" exact component={SignUp} />
+        {/* <Route path="/dashboard" exact component={Dashboard} /> */}
         <Route path="/marketing" exact component={Marketing} />
         <Route path="/consulting" exact component={Consulting} />
       </Switch>

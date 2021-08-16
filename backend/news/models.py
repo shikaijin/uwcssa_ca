@@ -41,7 +41,7 @@ class Article(models.Model):
     content = models.TextField(max_length=4000, null=True)
 
     image = models.ImageField(upload_to=upload_to,
-                              default='posts/default.jpg')  # new
+                              default='news/default.jpg')  # new
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True, null=True)

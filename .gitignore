@@ -186,3 +186,9 @@ backend/data*
 # django secret infomation
 # backend/SECRET.py
 
+# vscode
+.vscode/
+.vscode
+
+
+

@@ -12,8 +12,7 @@ def upload_to(instance, filename):
 
 
 class CustomAccountManager(BaseUserManager):  # 继承 BaseUserManager
-    def create_superuser(self, email, username, first_name, password,
-                         **other_fields):
+    def create_superuser(self, email, username, password, **other_fields):
 
         other_fields.setdefault('is_staff', True)
         other_fields.setdefault('is_superuser', True)
@@ -28,17 +27,13 @@ class CustomAccountManager(BaseUserManager):  # 继承 BaseUserManager
         return self.create_user(email, username, first_name, password,
                                 **other_fields)
 
-    def create_user(self, email, username, first_name, password,
-                    **other_fields):
+    def create_user(self, email, username, password, **other_fields):
 
         if not email:
             raise ValueError(_('You must provide an email address'))
 
         email = self.normalize_email(email)
-        user = self.model(email=email,
-                          username=username,
-                          first_name=first_name,
-                          **other_fields)
+        user = self.model(email=email, username=username, **other_fields)
         user.set_password(password)
         user.save()
         return user
@@ -63,7 +58,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     objects = CustomAccountManager()  # 使用上面提供的自定义accountmanager
 
     USERNAME_FIELD = 'email'  # 让email变成登录名
-    REQUIRED_FIELDS = ['username', 'first_name']  # 必须填写的地方
+    REQUIRED_FIELDS = [
+        'username',
+    ]  # 必须填写的地方
 
     major = models.CharField(max_length=200, null=True, blank=True)  # 专业
     enroll_date = models.DateField(null=True, blank=True)  # 入学时间

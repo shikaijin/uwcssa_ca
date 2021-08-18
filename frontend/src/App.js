@@ -1,20 +1,41 @@
 import React from "react";
-import './App.css';
-import {Provider} from 'react-redux';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import  Bugs  from './components/Bugs';
-import configureStore from './store/configureStore';
+import Home from "./containers/Home";
+import Login from "./containers/Login";
+import Signup from "./containers/Signup";
+import Activate from "./containers/Activate";
+import ResetPassword from "./containers/ResetPassword";
+import ResetPasswordConfirm from "./containers/ResetPasswordConfirm";
+import Facebook from "./containers/Facebook";
+import Google from "./containers/Google";
 
-const store = configureStore();
+import { Provider } from "react-redux";
+import store from "./store";
 
-function App() {
-  return (
-    <Provider store={store}>
-      <Bugs/>
-      <h1>1111</h1>
-    </Provider>
-    
-  );
-}
+import Layout from "./hocs/Layout";
+
+const App = () => (
+  <Provider store={store}>
+    <Router>
+      <Layout>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/facebook" component={Facebook} />
+          <Route exact path="/google" component={Google} />
+          <Route exact path="/reset-password" component={ResetPassword} />
+          <Route
+            exact
+            path="/api/auth/reset/:uid/:token"
+            component={ResetPasswordConfirm}
+          />
+          <Route exact path="/api/auth/registration/account-confirm-email/:key" component={Activate} />
+        </Switch>
+      </Layout>
+    </Router>
+  </Provider>
+);
 
 export default App;

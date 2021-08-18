@@ -62,6 +62,7 @@ INSTALLED_APPS = [
 
     # api doc
     'drf_yasg',
+    'corsheaders',
 ]
 
 # let django know you are using custom User model
@@ -78,9 +79,10 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'AUTH_HEADER_TYPES': ('JWT', ),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
-    'AUTH_HEADER_TYPES': ('Bearer', ),
+    'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken', )
 }
 
 # reference: https://github.com/Tivix/django-rest-auth/issues/457
@@ -92,6 +94,7 @@ ACCOUNT_AUTHENTICATION_METHOD = 'email'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -168,7 +171,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # rest-auth
 SITE_ID = 1  # rest-auth
 
-
 ##################celery################
 CELERY_BROKER_URL = os.environ.get("CELERY_BROKER", "redis://redis:6379/0")
 CELERY_RESULT_BACKEND = os.environ.get("CELERY_BROKER", "redis://redis:6379/0")
@@ -216,4 +218,4 @@ SOCIALACCOUNT_PROVIDERS = {
         ],
     }
 }
-
+CORS_ORIGIN_ALLOW_ALL = True
